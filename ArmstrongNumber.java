@@ -1,26 +1,20 @@
 import java.util.Scanner;
-
-public class ArmstrongNumber {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a number: ");
-        int number = scanner.nextInt();
-        if (isArmstrong(number)) {
-            System.out.println(number + " is an Armstrong number.");
-        } else {
-            System.out.println(number + " is not an Armstrong number.");
-        }
-    }
-
-    public static boolean isArmstrong(int number) {
-        int originalNumber = number;
-        int numberOfDigits = String.valueOf(number).length();
-        int sum = 0;
-        while (number != 0) {
-            int digit = number % 10;
-            sum += Math.pow(digit, numberOfDigits);
-            number /= 10;
-        }
-        return sum == originalNumber;
-    }
+class ArmstrongNumber{
+	public static void main(String args[]){
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the Number : ");
+		int num=sc.nextInt();
+		int temp=num;
+		int sum=0;
+		while(num>0){
+			int res=num%10;
+			num=num/10;
+			sum=sum+(res*res*res);
+		}
+		if(temp==sum){
+			System.out.print(temp +" is an Armstrong Number");
+		}else{
+			System.out.print(temp +" is not an Armstrong Number");
+		}
+	}
 }
